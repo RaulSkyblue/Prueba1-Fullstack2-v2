@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es"> <!-- Documento en español -->
+
+<head>
+    <meta charset="UTF-8"> <!--indica el conjunto de caracteres que usará la página web -->
+    <title>Seguimiento de Pedido y Envío - Pastelería Mil Sabores</title> <!-- Título en la pestaña -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Diseño adaptable a móviles -->
+    <!-- Fuentes de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+
+    <header>
+        <!-- Encabezado de la página -->
+        <h1 class="titulo">Pastelería Mil Sabores</h1>
+        <p class="subtitulo">Pedidos y Envíos</p>
+    </header>
+
+    <nav>
+        <!-- Menú de navegación -->
+        <ul>
+            <li><a href="Parte_1.html">Inicio</a></li>
+            <li><a href="Parte_2.html">Catalogo</a></li>
+            <li><a href="Parte_4.html">Carrito de Compra</a></li>
+            <li><a href="Parte_5.html">Pedidos y Envios</a></li>
+            <li><a href="Parte_6.html">Promociones</a></li>
+            <li><a href="Parte_7.html">Registrarse</a></li>
+            <li><a href="Parte_3.html">Perfiles</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Sección de seguimiento de pedido -->
+        <section class="seccion">
+            <h2 style="font-family: 'Pacifico', cursive; color: #8B4513;">
+                Procesamiento y Seguimiento de Pedidos
+            </h2>
+
+            <!-- Información básica del pedido -->
+            <p><strong>N° de Pedido:</strong> #123456</p>
+            <p><strong>Cliente:</strong> Raul alvares</p>
+
+            <!-- Línea de progreso del pedido -->
+            <section class="status" id="estadoPedido">
+                <p class="active">Pedido Confirmado</p> <!-- Estado actual -->
+                <p>En Preparación</p>
+            </section>
+
+            <!-- Botón para avanzar el estado del pedido -->
+            <button onclick="actualizarEstado()">Actualizar Estado del Pedido</button>
+
+            <!-- Botón para descargar la boleta en PDF -->
+            <a href="boleta.pdf" download>
+                <button class="boleta-btn">Descargar Boleta</button>
+            </a>
+        </section>
+
+        <!-- Sección de seguimiento del envío -->
+        <section class="seccion">
+            <h3 style="font-family: 'Pacifico', cursive; color: #8B4513;">Gestión de Envíos</h3>
+            <p><strong>Estado del Envío:</strong> <span id="estadoEnvio">Centro de distribución</span></p>
+            <p><strong>Ubicación Actual:</strong> <span id="ubicacionActual">Santiago, Chile</span></p>
+            <!-- Botón que simula actualización de ubicación -->
+            <button onclick="simularEnvio()">Actualizar Seguimiento en Tiempo Real</button>
+        </section>
+
+        <!-- Sección para elegir fecha de entrega -->
+        <section class="seccion">
+            <h3 style="font-family: 'Pacifico', cursive; color: #8B4513;">
+                Selecciona tu Fecha de Entrega Preferida:
+            </h3>
+            <!-- Selector de fecha -->
+            <input type="date" id="fechaEntrega">
+            <!-- Guardar fecha elegida -->
+            <button onclick="guardarFecha()">Guardar Fecha</button>
+            <!-- Aquí se mostrará la confirmación -->
+            <p id="fechaConfirmada"></p>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Pie de página -->
+        <p>&copy; 2024 Pastelería Mil Sabores. Todos los derechos reservados.</p>
+        <a href="#contacto">Contacto</a>
+        <a href="#sobre-nosotros">Sobre Nosotros</a>
+    </footer>
+
+    <!-- Archivo JavaScript enlazado -->
+    <script src="registro.js"></script>
+
+</body>
+
+</html>
