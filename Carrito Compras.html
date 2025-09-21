@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es"> <head>
+    <meta charset="UTF-8"> <title>Carrito de Compras - Pastelería Mil Sabores</title> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+
+<header>
+    <h1 class="titulo">Pastelería Mil Sabores</h1>
+    <p class="subtitulo">Carrito de Compras</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="Inicio.html">Inicio</a></li>
+    <li><a href="Catalogo.html">Catálogo</a></li>
+    <li><a href="Carrito Compras.html">Carrito de Compra</a></li>
+    <li><a href="Pedidos y Envios.html">Pedidos y Envios</a></li>
+    <li><a href="Promociones especiales.html">Promociones</a></li>
+    <li><a href="Crear cuenta.html">Registrarse</a></li>
+    <li><a href="Gestion de Perfil.html">Perfiles</a></li>
+  </ul>
+</nav>
+
+<main>
+    <h2 class="titulo-carrito">Tu Carrito de Compras</h2>
+
+    <table aria-label="Carrito de compras">
+        <thead>
+            <tr>
+                <th>Producto</th> <th>Precio</th>   <th>Cantidad</th> <th>Subtotal</th> <th>Acciones</th> </tr>
+        </thead>
+        <tbody id="carrito-body">
+        </tbody>
+    </table>
+
+    <p class="total" id="total">Total: $0</p>
+
+    <section class="botones-container">
+        <button class="vaciar" type="button" onclick="vaciarCarrito()">Vaciar Carrito</button>
+        <button class="comprar" type="button" onclick="procesarCompra()" id="btn-comprar">
+            Procesar Compra
+        </button>
+    </section>
+</main>
+
+<section id="modal-compra" class="modal">
+    <article class="modal-content">
+        <button class="modal-close" onclick="cerrarModal()">&times;</button>
+        <h2 style="color: #8B4513; margin-bottom: 1rem;">¡Compra Exitosa!</h2>
+        <p>Tu pedido ha sido procesado correctamente.</p>
+        <p><strong>Total pagado: <span id="total-modal">$0</span></strong></p>
+        <p style="margin: 1rem 0; color: #5D4037; font-size: 0.9rem;">
+            Recibirás un email de confirmación en breve con los detalles de tu pedido.
+        </p>
+        <button onclick="cerrarModal()" class="btn-submit">Cerrar</button>
+    </article>
+</section>
+
+<section id="mensaje-flotante" role="alert" aria-live="assertive"></section>
+
+<footer>
+    <p><strong>Dirección:</strong> Av. Américo Vespucio 1501, Cerrillos, Región Metropolitana</p>
+    <p><strong>Teléfono:</strong> +52 33 1427 2887</p>
+    <p><strong>Redes Sociales:</strong>
+        <a href="https://www.facebook.com/mil.sabores.cakeshop/" target="_blank">Facebook - Mil Sabores Cake
+            Shop</a>
+    </p>
+</footer>
+
+<script src="registro.js"></script>
+
+</body>
+</html>
