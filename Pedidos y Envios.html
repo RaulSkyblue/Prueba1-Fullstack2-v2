@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es"> <head>
+    <meta charset="UTF-8"> <title>Seguimiento de Pedido y Envío - Pastelería Mil Sabores</title> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="1.css">
+</head>
+
+<body>
+
+    <header>
+        <h1 class="titulo">Pastelería Mil Sabores</h1>
+        <p class="subtitulo">Pedidos y Envíos</p>
+    </header>
+
+<nav>
+  <ul>
+    <li><a href="Inicio.html">Inicio</a></li>
+    <li><a href="Catalogo.html">Catálogo</a></li>
+    <li><a href="Carrito Compras.html">Carrito de Compra</a></li>
+    <li><a href="Pedidos y Envios.html">Pedidos y Envios</a></li>
+    <li><a href="Promociones especiales.html">Promociones</a></li>
+    <li><a href="Crear cuenta.html">Registrarse</a></li>
+    <li><a href="Gestion de Perfil.html">Perfiles</a></li>
+  </ul>
+</nav>
+
+    <main>
+        <section class="seccion">
+            <h2 style="font-family: 'Pacifico', cursive; color: #8B4513;">
+                Procesamiento y Seguimiento de Pedidos
+            </h2>
+
+            <p><strong>N° de Pedido:</strong> #123456</p>
+            <p><strong>Cliente:</strong> Raul alvares</p>
+
+            <section class="status" id="estadoPedido">
+                <p class="active">Pedido Confirmado</p> <p>En Preparación</p>
+            </section>
+
+            <button onclick="actualizarEstado()">Actualizar Estado del Pedido</button>
+
+            <a href="boleta.pdf" download>
+                <button class="boleta-btn">Descargar Boleta</button>
+            </a>
+        </section>
+
+        <section class="seccion">
+            <h3 style="font-family: 'Pacifico', cursive; color: #8B4513;">Gestión de Envíos</h3>
+            <p><strong>Estado del Envío:</strong> <span id="estadoEnvio">Centro de distribución</span></p>
+            <p><strong>Ubicación Actual:</strong> <span id="ubicacionActual">Santiago, Chile</span></p>
+            <button onclick="simularEnvio()">Actualizar Seguimiento en Tiempo Real</button>
+        </section>
+
+        <section class="seccion">
+            <h3 style="font-family: 'Pacifico', cursive; color: #8B4513;">
+                Selecciona tu Fecha de Entrega Preferida:
+            </h3>
+            <input type="date" id="fechaEntrega">
+            <button onclick="guardarFecha()">Guardar Fecha</button>
+            <p id="fechaConfirmada"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Dirección:</strong> Av. Américo Vespucio 1501, Cerrillos, Región Metropolitana</p>
+        <p><strong>Teléfono:</strong> +52 33 1427 2887</p>
+        <p><strong>Redes Sociales:</strong>
+            <a href="https://www.facebook.com/mil.sabores.cakeshop/" target="_blank">Facebook - Mil Sabores Cake
+                Shop</a>
+        </p>
+    </footer>
+
+    <script src="registro.js"></script>
+
+</body>
+
+</html>
