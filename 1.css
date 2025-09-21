@@ -1,19 +1,13 @@
-/* ================================
-   ESTILOS GENERALES DE LA PÁGINA
-   ================================ */
 body {
-	background-color: #FFF5E1; /* Fondo color crema */
-	font-family: 'Lato', Arial, sans-serif; /* Fuente base */
-	color: #000000; /* Texto negro */
+	background-color: #FFF5E1;
+	font-family: 'Lato', Arial, sans-serif;
+	color: #000000;
 	margin: 0;
 	padding: 0;
 }
 
-/* ================================
-   ENCABEZADO (header)
-   ================================ */
 header {
-	background: #FFC0CB; /* Fondo rosado */
+	background: #FFC0CB;
 	padding: 2rem 0 1rem 0;
 	text-align: center;
 }
@@ -30,16 +24,13 @@ header {
 	color: #000000;
 }
 
-/* ================================
-   MENÚ DE NAVEGACIÓN
-   ================================ */
 nav {
 	background: #8B4513;
 	display: flex;
 	justify-content: center;
 	gap: 1rem;
 	padding: 1rem 0;
-	flex-wrap: wrap; /* Para móviles */
+	flex-wrap: wrap;
 }
 
 nav ul {
@@ -70,9 +61,6 @@ nav li a.active {
 	color: #FFF5E1;
 }
 
-/* ================================
-   CONTENEDOR PRINCIPAL
-   ================================ */
 main {
 	max-width: 1000px;
 	margin: 2rem auto;
@@ -86,9 +74,6 @@ main {
 	margin-bottom: 2rem;
 }
 
-/* ================================
-   CATÁLOGO DE PRODUCTOS
-   ================================ */
 #productos,
 .catalogo {
 	display: grid;
@@ -154,9 +139,6 @@ main {
 	color: #8B4513;
 }
 
-/* ================================
-   FILTROS DEL CATÁLOGO
-   ================================ */
 .filtro-container {
 	background: #FFC0CB;
 	padding: 1rem;
@@ -181,9 +163,6 @@ main {
 	color: #000000;
 }
 
-/* ================================
-   CARRITO DE COMPRAS
-   ================================ */
 #resumenCarrito {
 	font-size: 1.1rem;
 	color: #8B4513;
@@ -220,9 +199,6 @@ th {
 	margin: 1rem 0;
 }
 
-/* ================================
-   FORMULARIOS
-   ================================ */
 form {
 	background: #FFC0CB;
 	border-radius: 15px;
@@ -277,9 +253,6 @@ button[type="submit"]:hover {
 	color: #8B4513;
 }
 
-/* ================================
-   MODAL (VENTANA EMERGENTE)
-   ================================ */
 .modal {
 	position: fixed;
 	top: 0;
@@ -319,9 +292,6 @@ button[type="submit"]:hover {
 	color: #8B4513;
 }
 
-/* ================================
-   MENSAJE FLOTANTE
-   ================================ */
 #mensaje-flotante {
 	position: fixed;
 	top: 1rem;
@@ -340,9 +310,6 @@ button[type="submit"]:hover {
 	opacity: 1;
 }
 
-/* ================================
-   PIE DE PÁGINA
-   ================================ */
 footer {
 	background: #8B4513;
 	color: #FFF5E1;
@@ -361,20 +328,15 @@ footer a:hover {
 	text-decoration: underline;
 }
 
-/* ================================
-   RESPONSIVO (móviles)
-   ================================ */
 @media (max-width: 768px) {
 	#productos,
 	.catalogo {
 		grid-template-columns: 1fr;
 	}
-	
 	.botones-container {
 		flex-direction: column;
 		align-items: stretch;
 	}
-	
 	table {
 		font-size: 0.9rem;
 	}
