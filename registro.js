@@ -3,7 +3,7 @@
 // ====================================
 
 // Variables globales
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+let carrito = [];
 let totalCarrito = 0;
 
 // ====================================
@@ -24,7 +24,6 @@ function agregarAlCarrito(nombre, precio, tamaño, mensaje) {
   carrito.push(producto);
   actualizarCarrito();
   mostrarMensaje(`${nombre} agregado al carrito`, 'success');
-  localStorage.setItem('carrito', JSON.stringify(carrito));
 }
 
 // Actualizar carrito en la página
@@ -77,7 +76,6 @@ function cambiarCantidad(id, cambio) {
       eliminarDelCarrito(id);
     } else {
       actualizarCarrito();
-      localStorage.setItem('carrito', JSON.stringify(carrito));
     }
   }
 }
@@ -86,7 +84,6 @@ function cambiarCantidad(id, cambio) {
 function eliminarDelCarrito(id) {
   carrito = carrito.filter(item => item.id !== id);
   actualizarCarrito();
-  localStorage.setItem('carrito', JSON.stringify(carrito));
   mostrarMensaje('Producto eliminado del carrito', 'warning');
 }
 
@@ -100,7 +97,6 @@ function vaciarCarrito() {
   if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
     carrito = [];
     actualizarCarrito();
-    localStorage.removeItem('carrito');
     mostrarMensaje('Carrito vaciado exitosamente', 'success');
   }
 }
@@ -126,7 +122,6 @@ function procesarCompra() {
   
   // Vaciar carrito después de la compra
   carrito = [];
-  localStorage.removeItem('carrito');
   actualizarCarrito();
 }
 
@@ -171,12 +166,6 @@ function validarRegistro(event) {
   }
   
   // Registro exitoso
-  localStorage.setItem('usuario', JSON.stringify({
-    nombre: nombre,
-    email: email,
-    fechaNacimiento: fechaNacimiento
-  }));
-  
   mostrarMensaje('¡Cuenta creada exitosamente!', 'success');
   document.getElementById('registro-form').reset();
 }
@@ -199,76 +188,6 @@ function validarPerfil(event) {
   }
   
   mostrarMensaje('Perfil actualizado exitosamente', 'success');
-}
-
-// ====================================
-// FUNCIONES DE PEDIDOS Y ENVÍOS
-// ====================================
-
-let estadosPedido = ['Pedido Confirmado', 'En Preparación', 'En Camino', 'Entregado'];
-let estadoActual = 0;
-
-function actualizarEstado() {
-  if (estadoActual < estadosPedido.length - 1) {
-    estadoActual++;
-    
-    const statusElements = document.querySelectorAll('#estadoPedido p');
-    statusElements.forEach((element, index) => {
-      element.classList.remove('active');
-      if (index <= estadoActual) {
-        element.classList.add('active');
-      }
-    });
-    
-    mostrarMensaje(`Estado actualizado: ${estadosPedido[estadoActual]}`, 'success');
-  } else {
-    mostrarMensaje('Tu pedido ya ha sido entregado', 'success');
-  }
-}
-
-let ubicaciones = ['Centro de distribución', 'En ruta', 'Cerca de tu ubicación', 'Entregado'];
-let ubicacionActual = 0;
-
-function simularEnvio() {
-  if (ubicacionActual < ubicaciones.length - 1) {
-    ubicacionActual++;
-    
-    const estadoEnvio = document.getElementById('estadoEnvio');
-    const ubicacionElement = document.getElementById('ubicacionActual');
-    
-    if (estadoEnvio) {
-      estadoEnvio.textContent = ubicaciones[ubicacionActual];
-    }
-    
-    if (ubicacionElement) {
-      ubicacionElement.textContent = 'Santiago, Chile';
-    }
-    
-    mostrarMensaje(`Envío actualizado: ${ubicaciones[ubicacionActual]}`, 'success');
-  } else {
-    mostrarMensaje('Tu pedido ya ha sido entregado', 'success');
-  }
-}
-
-function guardarFecha() {
-  const fechaEntrega = document.getElementById('fechaEntrega').value;
-  const fechaConfirmada = document.getElementById('fechaConfirmada');
-  
-  if (!fechaEntrega) {
-    mostrarMensaje('Selecciona una fecha de entrega', 'warning');
-    return;
-  }
-  
-  const fecha = new Date(fechaEntrega);
-  const fechaFormateada = fecha.toLocaleDateString('es-CL');
-  
-  if (fechaConfirmada) {
-    fechaConfirmada.textContent = `Fecha de entrega confirmada: ${fechaFormateada}`;
-    fechaConfirmada.style.color = '#8B4513';
-    fechaConfirmada.style.fontWeight = 'bold';
-  }
-  
-  mostrarMensaje('Fecha de entrega guardada exitosamente', 'success');
 }
 
 // ====================================
@@ -325,7 +244,7 @@ function mostrarMensaje(mensaje, tipo = 'success') {
 function crearElementoMensaje() {
   const elemento = document.createElement('div');
   elemento.id = 'mensaje-flotante';
-  documento.body.appendChild(elemento);
+  document.body.appendChild(elemento);
   return elemento;
 }
 
